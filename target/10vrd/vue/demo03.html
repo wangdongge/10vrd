@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-bind="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="mydiv">
+    <h3 v-text="msg"></h3>
+    <input type="text" v-model="msg">
+    <h1 v-bind:style="{'color':color}">属性测试</h1>
+</div>
+<script src="../bootstrap3/jquery.min.js"></script>
+<!--引入Vue框架-->
+<script src="../js/vue.js"></script>
+<script>
+    let v = new Vue({
+        el:"#mydiv",
+        data:{
+            msg:"测试文本",
+            color:"red",
+        }
+    });
+</script>
+</body>
+</html>

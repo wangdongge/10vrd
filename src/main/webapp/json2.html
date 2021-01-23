@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="button" value="按钮一">
+<script src="bootstrap3/jquery.min.js"></script>
+<script>
+    //按钮点击事件
+    $("input:eq(0)").click(function () {
+        //发出异步请求
+        $.ajax({
+            type:"get",
+            url:"json1",
+            data:"",
+            success:function (msg) {
+                let json = JSON.parse(msg);
+                for (let i = 0; i < json.length; i++) {
+                    //遍历 取出每一个作品
+                    let product = json[i];
+                    //创建h1标签
+                    let h1 = $("<h1></h1>");
+                    //把作品标题装进h1中
+                    h1.next(product.title);
+                    //h1装进body
+                    $("body").append(h1);
+                }
+            }
+        })
+    });
+</script>
+
+</body>
+</html>
